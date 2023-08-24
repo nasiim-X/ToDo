@@ -88,11 +88,13 @@ class _ToDoListState extends State<ToDoList> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        children: _todos.map((Todo todo) {
+          return TodoItem(
+            todo: todo,
+          );
+        }).toList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _displayDialog(),
