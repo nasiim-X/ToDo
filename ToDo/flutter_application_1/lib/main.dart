@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ToDoApp());
+  runApp(const TaskApp());
 }
 
-class ToDoApp extends StatelessWidget {
-  const ToDoApp({super.key});
+class TaskApp extends StatelessWidget {
+  const TaskApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TaskManager',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 15, 182, 68)),
         useMaterial3: true,
       ),
-      home: const ToDoList(title: 'ToDo Manager'),
+      home: const TaskList(title: 'Task Manager'),
     );
   }
 }
 
-class ToDoList extends StatefulWidget {
-  const ToDoList({super.key, required this.title});
+class TaskList extends StatefulWidget {
+  const TaskList({super.key, required this.title});
 
   final String title;
 
   @override
-  State<ToDoList> createState() => _ToDoListState();
+  State<TaskList> createState() => _TaskListState();
 }
 
-class _ToDoListState extends State<ToDoList> {
+class _TaskListState extends State<TaskList> {
   final List<Todo> _todos = <Todo>[];
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -97,6 +98,7 @@ class _ToDoListState extends State<ToDoList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 218, 222, 151),
       appBar: AppBar(
         title: Text(widget.title),
       ),
